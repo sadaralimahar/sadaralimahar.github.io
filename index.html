@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>SadarUddin | Flutter Developer</title>
 
   <style>
@@ -11,6 +12,10 @@
       padding: 0;
       box-sizing: border-box;
       font-family: Arial, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -38,13 +43,18 @@
 
     .btn {
       display: inline-block;
-      margin-top: 20px;
+      margin-top: 18px;
       padding: 12px 22px;
-      background: white;
-      color: #111827;
+      background: #111827;
+      color: white;
       text-decoration: none;
       border-radius: 8px;
       font-weight: bold;
+    }
+
+    header .btn {
+      background: white;
+      color: #111827;
     }
 
     nav {
@@ -65,7 +75,7 @@
     }
 
     section {
-      max-width: 950px;
+      max-width: 1000px;
       margin: auto;
       padding: 60px 20px;
     }
@@ -79,8 +89,23 @@
     .about {
       text-align: center;
       font-size: 18px;
-      max-width: 750px;
+      max-width: 800px;
       margin: auto;
+    }
+
+    .education {
+      background: white;
+      max-width: 700px;
+      margin: 25px auto 0;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .education h3 {
+      font-size: 22px;
+      margin-bottom: 8px;
     }
 
     .skills {
@@ -98,34 +123,68 @@
 
     .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
     }
 
     .project {
       background: white;
-      padding: 25px;
-      border-radius: 12px;
+      padding: 18px;
+      border-radius: 14px;
       box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+      overflow: hidden;
     }
 
     .project h3 {
       font-size: 22px;
-      margin-bottom: 10px;
+      margin: 16px 4px 8px;
     }
 
     .project p {
       color: #6b7280;
+      margin: 0 4px;
+    }
+
+    .shots {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .shots img {
+      width: 100%;
+      height: 330px;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 10px;
+      background: #eee;
     }
 
     .project .btn {
-      background: #111827;
-      color: white;
-      margin-top: 18px;
+      margin-left: 4px;
     }
 
     .contact {
       text-align: center;
+    }
+
+    .contact-info {
+      background: white;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+    }
+
+    .contact-info p {
+      margin: 10px 0;
+    }
+
+    .contact-info a {
+      color: #111827;
+      font-weight: bold;
+      text-decoration: none;
     }
 
     footer {
@@ -144,42 +203,69 @@
         margin: 0 5px;
         font-size: 14px;
       }
+
+      .shots img {
+        height: 300px;
+      }
     }
   </style>
 </head>
 
 <body>
 
+  <!-- HEADER -->
   <header>
     <h1>SadarUddin</h1>
     <p>Flutter Developer</p>
 
-    <a class="btn"
-       href="https://github.com/sadaralimahar"
-       target="_blank">
+    <a
+      class="btn"
+      href="https://github.com/sadaralimahar"
+      target="_blank">
       GitHub Profile
     </a>
   </header>
 
+
+  <!-- NAVIGATION -->
   <nav>
     <a href="#about">About</a>
+    <a href="#education">Education</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
   </nav>
 
+
+  <!-- ABOUT -->
   <section id="about">
     <h2>About Me</h2>
 
     <p class="about">
-      Hi, I'm SadarUddin, a Flutter Developer passionate about
-      building modern and user-friendly mobile applications.
-      I have experience working with Flutter and Dart and I am
-      currently looking for an internship opportunity to improve
-      my development skills and gain professional experience.
+      Hi, I'm SadarUddin, a Software Engineering student at the
+      University of Sindh, Jamshoro, and a passionate Flutter Developer.
+      I enjoy building modern, user-friendly mobile applications using
+      Flutter and Dart. I have developed projects including a Grocery App,
+      WhatsApp Clone, Todo App, and SneakerTute Clone. I am currently
+      looking for a Flutter development internship where I can apply my
+      skills, learn from experienced developers, and grow professionally.
     </p>
   </section>
 
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <h2>Education</h2>
+
+    <div class="education">
+      <h3>BS Software Engineering</h3>
+      <p><strong>University of Sindh, Jamshoro</strong></p>
+      <p>Ghotki, Sindh, Pakistan</p>
+    </div>
+  </section>
+
+
+  <!-- SKILLS -->
   <section id="skills">
     <h2>Skills</h2>
 
@@ -194,89 +280,182 @@
     </div>
   </section>
 
+
+  <!-- PROJECTS -->
   <section id="projects">
     <h2>My Projects</h2>
 
     <div class="projects">
 
+      <!-- GROCERY -->
       <div class="project">
+
+        <div class="shots">
+          <img
+            src="images/grocery-1.jpg"
+            alt="Grocery App screenshot">
+
+          <img
+            src="images/grocery-2.jpg"
+            alt="Grocery App screenshot">
+        </div>
+
         <h3>Grocery App</h3>
+
         <p>
-          A Flutter grocery shopping application designed with
-          a clean and user-friendly mobile interface.
+          A Flutter grocery shopping application with a clean
+          and user-friendly mobile interface.
         </p>
 
-        <a class="btn"
-           href="https://github.com/sadaralimahar/Grocery_app"
-           target="_blank">
+        <a
+          class="btn"
+          href="https://github.com/sadaralimahar/Grocery_app"
+          target="_blank">
           View on GitHub
         </a>
+
       </div>
 
+
+      <!-- WHATSAPP -->
       <div class="project">
+
+        <div class="shots">
+          <img
+            src="images/whatsapp-1.jpg"
+            alt="WhatsApp Clone screenshot">
+
+          <img
+            src="images/whatsapp-2.jpg"
+            alt="WhatsApp Clone screenshot">
+        </div>
+
         <h3>WhatsApp Clone</h3>
+
         <p>
           A Flutter WhatsApp-style application created to practice
-          modern UI design and mobile application development.
+          modern mobile UI design and application development.
         </p>
 
-        <a class="btn"
-           href="https://github.com/sadaralimahar/whatsapp_clone"
-           target="_blank">
+        <a
+          class="btn"
+          href="https://github.com/sadaralimahar/whatsapp_clone"
+          target="_blank">
           View on GitHub
         </a>
+
       </div>
 
+
+      <!-- TODO -->
       <div class="project">
+
+        <div class="shots">
+          <img
+            src="images/todo-1.jpg"
+            alt="Todo Clone screenshot">
+
+          <img
+            src="images/todo-2.jpg"
+            alt="Todo Clone screenshot">
+        </div>
+
         <h3>Todo Clone</h3>
+
         <p>
-          A simple and practical Flutter Todo application for
-          managing daily tasks and improving productivity.
+          A Flutter Todo application for creating, completing
+          and managing daily tasks.
         </p>
 
-        <a class="btn"
-           href="https://github.com/sadaralimahar/todo_clone"
-           target="_blank">
+        <a
+          class="btn"
+          href="https://github.com/sadaralimahar/todo_clone"
+          target="_blank">
           View on GitHub
         </a>
+
       </div>
 
+
+      <!-- SNEAKERTUTE -->
       <div class="project">
+
+        <div class="shots">
+          <img
+            src="images/sneakertute-1.jpg"
+            alt="SneakerTute Clone screenshot">
+
+          <img
+            src="images/sneakertute-2.jpg"
+            alt="SneakerTute Clone screenshot">
+        </div>
+
         <h3>SneakerTute Clone</h3>
+
         <p>
-          A Flutter-based sneaker application project focused on
-          creating an attractive and modern shopping interface.
+          A Flutter sneaker shopping application focused on
+          modern product browsing and shopping UI.
         </p>
 
-        <a class="btn"
-           href="https://github.com/sadaralimahar/sneakertute_clone"
-           target="_blank">
+        <a
+          class="btn"
+          href="https://github.com/sadaralimahar/sneakertute_clone"
+          target="_blank">
           View on GitHub
         </a>
+
       </div>
 
     </div>
   </section>
 
+
+  <!-- CONTACT -->
   <section id="contact">
+
     <h2>Contact Me</h2>
 
-    <div class="contact">
+    <div class="contact-info">
+
       <p>
-        I am currently looking for Flutter internship opportunities.
+        I am currently looking for Flutter development internship
+        opportunities.
       </p>
 
-      <a class="btn"
-         href="https://github.com/sadaralimahar"
-         target="_blank">
-        GitHub
+      <p>
+        📧 Email:
+        <a href="mailto:sadaralimahar78@gmail.com">
+          sadaralimahar78@gmail.com
+        </a>
+      </p>
+
+      <p>
+        📱 Phone:
+        <a href="tel:03230338983">
+          03230338983
+        </a>
+      </p>
+
+      <p>
+        📍 Location: Ghotki, Sindh, Pakistan
+      </p>
+
+      <a
+        class="btn"
+        href="https://github.com/sadaralimahar"
+        target="_blank">
+        GitHub Profile
       </a>
+
     </div>
+
   </section>
 
+
+  <!-- FOOTER -->
   <footer>
     <p>© 2026 SadarUddin | Flutter Developer</p>
   </footer>
 
 </body>
-</html>
+  </html>
