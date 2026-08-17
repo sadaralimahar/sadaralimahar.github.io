@@ -1,891 +1,926 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>SadarUddin | Flutter Developer</title>
-
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial, sans-serif;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  background:#f4f8ff;
-  color:#172033;
-  line-height:1.6;
-}
-
-/* ================= NAVBAR ================= */
-
-nav{
-  width:92%;
-  max-width:1200px;
-  margin:8px auto 0;
-  padding:14px 22px;
-  background:white;
-  border-radius:16px;
-  position:sticky;
-  top:8px;
-  z-index:1000;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  box-shadow:0 8px 30px rgba(0,0,0,.12);
-}
-
-.logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.logo-icon{
-  width:42px;
-  height:42px;
-  border-radius:12px;
-  background:#1268ee;
-  color:white;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:22px;
-  font-weight:bold;
-}
-
-.logo h3{
-  font-size:18px;
-}
-
-.logo span{
-  display:block;
-  font-size:12px;
-  color:#68758a;
-}
-
-.nav-links{
-  display:flex;
-  gap:30px;
-}
-
-.nav-links a{
-  text-decoration:none;
-  color:#172033;
-  font-weight:bold;
-  font-size:14px;
-}
-
-.nav-links a:hover{
-  color:#1268ee;
-}
-
-.nav-btn{
-  background:#1268ee;
-  color:white !important;
-  padding:11px 18px;
-  border-radius:12px;
-}
-
-/* ================= HERO ================= */
-
-.hero{
-  min-height:520px;
-  background:
-    radial-gradient(circle at 80% 50%, rgba(40,130,255,.4), transparent 30%),
-    linear-gradient(135deg,#06152f,#062b69,#0868e8);
-  color:white;
-  position:relative;
-  overflow:hidden;
-  margin-top:-25px;
-  padding-top:70px;
-}
-
-.hero::before{
-  content:"";
-  position:absolute;
-  width:500px;
-  height:500px;
-  border:2px solid rgba(255,255,255,.08);
-  border-radius:50%;
-  right:-80px;
-  top:20px;
-}
-
-.hero-container{
-  max-width:950px;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:60px;
-  padding:55px 20px 70px;
-  position:relative;
-  z-index:2;
-}
-
-.hero-text{
-  flex:1;
-}
-
-.badge{
-  display:inline-block;
-  border:1px solid rgba(255,255,255,.2);
-  background:rgba(255,255,255,.06);
-  padding:7px 15px;
-  border-radius:30px;
-  font-size:13px;
-  margin-bottom:18px;
-}
-
-.badge::first-letter{
-  color:#20e987;
-}
-
-.hero h1{
-  font-size:54px;
-  line-height:1.1;
-  margin-bottom:8px;
-}
-
-.hero h1 span{
-  color:#1680ff;
-}
-
-.hero h2{
-  font-size:29px;
-  margin-bottom:12px;
-}
-
-.hero-description{
-  max-width:580px;
-  color:#d9e9ff;
-  font-size:16px;
-}
-
-.hero-buttons{
-  display:flex;
-  gap:12px;
-  margin-top:25px;
-}
-
-.hero-btn{
-  padding:13px 22px;
-  border-radius:10px;
-  text-decoration:none;
-  font-weight:bold;
-  transition:.3s;
-}
-
-.github{
-  background:#1268ee;
-  color:white;
-}
-
-.linkedin{
-  background:white;
-  color:#172033;
-}
-
-.hero-btn:hover{
-  transform:translateY(-3px);
-}
-
-.location{
-  margin-top:18px;
-  color:#d9e9ff;
-}
-
-/* ================= PROFILE ================= */
-
-.profile-area{
-  width:310px;
-  height:310px;
-  position:relative;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-
-.profile-ring{
-  width:300px;
-  height:300px;
-  border-radius:50%;
-  padding:7px;
-  border:3px solid #55aaff;
-  box-shadow:
-    0 0 0 12px rgba(52,145,255,.12),
-    0 0 50px rgba(45,145,255,.45);
-  background:rgba(255,255,255,.1);
-}
-
-.profile-pic{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center;
-  border-radius:50%;
-  display:block;
-  border:5px solid white;
-}
-
-.flutter-badge{
-  position:absolute;
-  right:0;
-  bottom:25px;
-  width:62px;
-  height:62px;
-  border-radius:50%;
-  background:white;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:28px;
-  box-shadow:0 8px 25px rgba(0,0,0,.25);
-}
-
-/* ================= COMMON ================= */
-
-section{
-  max-width:1150px;
-  margin:auto;
-  padding:55px 20px;
-}
-
-.cards{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-
-.info-card{
-  background:white;
-  padding:25px;
-  border-radius:18px;
-  box-shadow:0 8px 25px rgba(20,50,100,.08);
-  border:1px solid #e5edf8;
-}
-
-.info-icon{
-  width:45px;
-  height:45px;
-  border-radius:50%;
-  background:#1268ee;
-  color:white;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin-bottom:14px;
-  font-size:20px;
-}
-
-.info-card h3{
-  margin-bottom:10px;
-}
-
-.info-card p{
-  color:#68758a;
-  font-size:14px;
-}
-
-/* ================= SKILLS ================= */
-
-.skills{
-  display:flex;
-  flex-wrap:wrap;
-  gap:9px;
-  margin-top:10px;
-}
-
-.skill{
-  background:#edf4ff;
-  color:#1268ee;
-  padding:7px 13px;
-  border-radius:20px;
-  font-size:12px;
-  font-weight:bold;
-}
-
-/* ================= PROJECTS ================= */
-
-.projects-title{
-  text-align:center;
-  font-size:30px;
-  margin:15px 0 25px;
-}
-
-.projects-title span{
-  color:#1268ee;
-}
-
-.projects{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
-}
-
-.project{
-  background:white;
-  border-radius:17px;
-  overflow:hidden;
-  border:1px solid #e2eaf5;
-  box-shadow:0 8px 25px rgba(20,50,100,.08);
-  transition:.3s;
-}
-
-.project:hover{
-  transform:translateY(-7px);
-  box-shadow:0 18px 35px rgba(20,80,170,.15);
-}
-
-.project-image{
-  padding:10px;
-  background:#edf5ff;
-}
-
-.project-image img{
-  width:100%;
-  height:170px;
-  object-fit:cover;
-  object-position:top;
-  border-radius:12px;
-}
-
-.project-body{
-  padding:15px;
-}
-
-.project h3{
-  font-size:17px;
-  margin-bottom:5px;
-}
-
-.project p{
-  color:#68758a;
-  font-size:12px;
-  min-height:55px;
-}
-
-.tech{
-  display:flex;
-  flex-wrap:wrap;
-  gap:6px;
-  margin:10px 0;
-}
-
-.tech span{
-  background:#edf4ff;
-  color:#1268ee;
-  padding:4px 8px;
-  border-radius:15px;
-  font-size:10px;
-  font-weight:bold;
-}
-
-.project-buttons{
-  display:flex;
-  gap:7px;
-}
-
-.project-buttons a{
-  flex:1;
-  text-align:center;
-  text-decoration:none;
-  padding:9px 5px;
-  border-radius:9px;
-  font-size:11px;
-  font-weight:bold;
-}
-
-.live{
-  background:#1268ee;
-  color:white;
-}
-
-.code{
-  background:#111827;
-  color:white;
-}
-
-/* ================= CONTACT ================= */
-
-.contact-box{
-  background:white;
-  border-radius:20px;
-  padding:28px;
-  display:grid;
-  grid-template-columns:1.3fr 1fr 1fr 1fr;
-  gap:20px;
-  align-items:center;
-  box-shadow:0 8px 25px rgba(20,50,100,.08);
-}
-
-.contact-icon{
-  width:55px;
-  height:55px;
-  border-radius:50%;
-  background:#1268ee;
-  color:white;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:25px;
-  float:left;
-  margin-right:15px;
-}
-
-.contact-box h3{
-  margin-bottom:5px;
-}
-
-.contact-box p{
-  color:#68758a;
-  font-size:13px;
-}
-
-.contact-box a{
-  color:#1268ee;
-  text-decoration:none;
-  font-weight:bold;
-  font-size:13px;
-}
-
-.contact-buttons a{
-  display:block;
-  padding:10px;
-  text-align:center;
-  border-radius:9px;
-  margin:6px 0;
-  text-decoration:none;
-  font-weight:bold;
-  font-size:13px;
-}
-
-.linkedin-btn{
-  background:#1268ee;
-  color:white;
-}
-
-.github-btn{
-  background:#111827;
-  color:white;
-}
-
-/* ================= FOOTER ================= */
-
-footer{
-  background:#06152f;
-  color:#cbd9ef;
-  text-align:center;
-  padding:25px;
-  margin-top:10px;
-}
-
-/* ================= MOBILE ================= */
-
-@media(max-width:900px){
-
-  .nav-links{
-    display:none;
-  }
-
-  .hero-container{
-    flex-direction:column-reverse;
-    text-align:center;
-  }
-
-  .hero-buttons{
-    justify-content:center;
-  }
-
-  .profile-area{
-    width:250px;
-    height:250px;
-  }
-
-  .profile-ring{
-    width:240px;
-    height:240px;
-  }
-
-  .projects{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .contact-box{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .cards{
-    grid-template-columns:1fr;
-  }
-}
-
-@media(max-width:600px){
-
-  nav{
-    width:95%;
-  }
-
-  .hero{
-    margin-top:-25px;
-  }
-
-  .hero h1{
-    font-size:39px;
-  }
-
-  .hero h2{
-    font-size:22px;
-  }
-
-  .profile-area{
-    width:210px;
-    height:210px;
-  }
-
-  .profile-ring{
-    width:205px;
-    height:205px;
-  }
-
-  .flutter-badge{
-    width:48px;
-    height:48px;
-    font-size:20px;
-  }
-
-  .projects{
-    grid-template-columns:1fr;
-  }
-
-  .project-image img{
-    height:240px;
-  }
-
-  .contact-box{
-    grid-template-columns:1fr;
-  }
-
-  .hero-buttons{
-    flex-direction:column;
-  }
-
-  .hero-btn{
-    width:100%;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>SadarUddin | Flutter Developer</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f5f8ff;
+      color: #14213d;
+      line-height: 1.6;
+    }
+
+    /* ================= NAVBAR ================= */
+
+    nav {
+      position: sticky;
+      top: 12px;
+      z-index: 999;
+      width: 92%;
+      max-width: 1150px;
+      margin: 12px auto 0;
+      padding: 13px 20px;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(15px);
+      border-radius: 16px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.10);
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg,#0878ff,#0046a8);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 17px;
+      box-shadow: 0 8px 20px rgba(0,102,255,.25);
+    }
+
+    .brand h3 {
+      font-size: 17px;
+    }
+
+    .brand small {
+      color: #718096;
+      font-size: 11px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 27px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #14213d;
+      font-size: 13px;
+      font-weight: bold;
+      transition: .25s;
+    }
+
+    .nav-links a:hover {
+      color: #0878ff;
+    }
+
+    .nav-contact {
+      text-decoration: none;
+      color: white;
+      background: #0878ff;
+      padding: 10px 17px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      min-height: 600px;
+      margin-top: -25px;
+      position: relative;
+      overflow: hidden;
+      color: white;
+
+      background:
+        radial-gradient(
+          circle at 82% 52%,
+          rgba(35,139,255,.38),
+          transparent 30%
+        ),
+        linear-gradient(
+          135deg,
+          #041126 0%,
+          #062c68 48%,
+          #0878ff 100%
+        );
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 550px;
+      height: 550px;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 50%;
+      right: -120px;
+      top: 50px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 50%;
+      right: 40px;
+      top: 150px;
+    }
+
+    .hero-container {
+      max-width: 1080px;
+      margin: auto;
+      min-height: 600px;
+      padding: 100px 25px 65px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 55px;
+
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content {
+      flex: 1;
+      max-width: 620px;
+    }
+
+    .available {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 7px 14px;
+      margin-bottom: 20px;
+
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.07);
+      border-radius: 30px;
+
+      color: #dcecff;
+      font-size: 12px;
+    }
+
+    .green-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #20e887;
+      box-shadow: 0 0 10px #20e887;
+    }
+
+    .hero h1 {
+      font-size: 56px;
+      line-height: 1.08;
+      margin-bottom: 8px;
+      letter-spacing: -1px;
+    }
+
+    .hero h1 span {
+      color: #37a0ff;
+    }
+
+    .hero h2 {
+      font-size: 27px;
+      margin-bottom: 15px;
+      color: #ffffff;
+    }
+
+    .hero-text {
+      color: #cfe1f8;
+      font-size: 16px;
+      max-width: 590px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 27px;
+    }
+
+    .hero-btn {
+      text-decoration: none;
+      padding: 13px 21px;
+      border-radius: 11px;
+      font-weight: bold;
+      font-size: 13px;
+      transition: .3s;
+    }
+
+    .hero-btn:hover {
+      transform: translateY(-4px);
+    }
+
+    .btn-blue {
+      background: #0878ff;
+      color: white;
+      box-shadow: 0 10px 25px rgba(0,0,0,.18);
+    }
+
+    .btn-white {
+      background: white;
+      color: #14213d;
+    }
+
+    .hero-location {
+      margin-top: 20px;
+      color: #cfe1f8;
+      font-size: 13px;
+    }
+
+    /* ================= PROFILE ================= */
+
+    .profile-wrapper {
+      width: 350px;
+      height: 350px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      position: relative;
+
+      /* thori neeche */
+      transform: translateY(28px);
+    }
+
+    .profile-glow {
+      position: absolute;
+      width: 330px;
+      height: 330px;
+      border-radius: 50%;
+
+      background: rgba(45,151,255,.18);
+      filter: blur(20px);
+    }
+
+    .profile-ring {
+      position: relative;
+      width: 295px;
+      height: 295px;
+      padding: 7px;
+
+      border-radius: 50%;
+
+      background: linear-gradient(
+        135deg,
+        #ffffff,
+        #56b1ff,
+        #0878ff
+      );
+
+      box-shadow:
+        0 0 0 10px rgba(55,160,255,.10),
+        0 0 55px rgba(40,150,255,.42);
+    }
+
+    .profile-pic {
+      width: 100%;
+      height: 100%;
+
+      display: block;
+
+      border-radius: 50%;
+      border: 5px solid #ffffff;
+
+      object-fit: cover;
+
+      /*
+        Photo thori neeche crop hogi
+        taa-ke face + hair dono clear rahen.
+      */
+      object-position: center 22%;
+    }
+
+    .profile-tag {
+      position: absolute;
+      right: -2px;
+      bottom: 20px;
+
+      padding: 10px 14px;
+
+      background: white;
+      color: #086ee9;
+
+      border-radius: 12px;
+
+      font-size: 12px;
+      font-weight: bold;
+
+      box-shadow: 0 10px 25px rgba(0,0,0,.20);
+    }
+
+    /* ================= SECTION ================= */
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 70px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 31px;
+      margin-bottom: 35px;
+      color: #10213e;
+    }
+
+    .section-title span {
+      color: #0878ff;
+    }
+
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 52px;
+      height: 4px;
+      background: #0878ff;
+      border-radius: 10px;
+      margin: 9px auto 0;
+    }
+
+    /* ================= INFO CARDS ================= */
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 22px;
+    }
+
+    .info-card {
+      background: white;
+      padding: 27px;
+      border-radius: 20px;
+      border: 1px solid #e4ecf7;
+
+      box-shadow: 0 10px 30px rgba(18,57,110,.07);
+
+      transition: .3s;
+    }
+
+    .info-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(18,57,110,.12);
+    }
+
+    .info-icon {
+      width: 47px;
+      height: 47px;
+      border-radius: 14px;
+
+      background: #eaf4ff;
+      color: #0878ff;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 21px;
+      margin-bottom: 15px;
+    }
+
+    .info-card h3 {
+      margin-bottom: 9px;
+      font-size: 20px;
+    }
+
+    .info-card p {
+      color: #65748b;
+      font-size: 14px;
+    }
+
+    /* ================= SKILLS ================= */
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .skill {
+      background: #edf5ff;
+      color: #0878ff;
+
+      padding: 7px 11px;
+
+      border-radius: 20px;
+
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    /* ================= PROJECTS ================= */
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 25px;
+    }
+
+    .project {
+      background: white;
+      border-radius: 21px;
+      overflow: hidden;
+
+      border: 1px solid #e2eaf5;
+
+      box-shadow: 0 10px 32px rgba(18,57,110,.08);
+
+      transition: .35s;
+    }
+
+    .project:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 45px rgba(8,120,255,.15);
+    }
+
+    .project-image {
+      background: #edf5ff;
+      padding: 10px;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 290px;
+
+      display: block;
+
+      object-fit: cover;
+      object-position: top;
+
+      border-radius: 14px;
+    }
+
+    .project-content {
+      padding: 21px;
+    }
+
+    .project h3 {
+      font-size: 21px;
+      margin-bottom: 6px;
+    }
+
+    .project p {
+      color: #68768b;
+      font-size: 13px;
+      margin-bottom: 13px;
+    }
+
+    .tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 17px;
+    }
+
+    .tech span {
+      background: #edf5ff;
+      color: #0878ff;
+
+      padding: 5px 9px;
+
+      border-radius: 20px;
+
+      font-size: 10px;
+      font-weight: bold;
+    }
+
+    .project-buttons {
+      display: flex;
+      gap: 9px;
+    }
+
+    .project-buttons a {
+      flex: 1;
+
+      text-align: center;
+
+      padding: 10px 8px;
+
+      border-radius: 9px;
+
+      text-decoration: none;
+
+      font-size: 12px;
+      font-weight: bold;
+
+      transition: .25s;
+    }
+
+    .project-buttons a:hover {
+      transform: translateY(-2px);
+    }
+
+    .live {
+      background: #0878ff;
+      color: white;
+    }
+
+    .github {
+      background: #111827;
+      color: white;
+    }
+
+    /* ================= CONTACT ================= */
+
+    .contact-card {
+      background: white;
+
+      padding: 32px;
+
+      border-radius: 22px;
+
+      box-shadow: 0 10px 35px rgba(18,57,110,.08);
+
+      border: 1px solid #e3ebf7;
+
+      display: grid;
+
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+
+      gap: 25px;
+
+      align-items: center;
+    }
+
+    .contact-main h3 {
+      font-size: 21px;
+      margin-bottom: 6px;
+    }
+
+    .contact-main p,
+    .contact-item p {
+      color: #68768b;
+      font-size: 13px;
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 13px;
+    }
+
+    .contact-item a {
+      color: #0878ff;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 12px;
+    }
+
+    .contact-buttons a {
+      display: block;
+      text-align: center;
+
+      padding: 10px;
+
+      margin: 6px 0;
+
+      border-radius: 9px;
+
+      text-decoration: none;
+
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .linkedin {
+      background: #0878ff;
+      color: white;
+    }
+
+    .github-contact {
+      background: #111827;
+      color: white;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      background: #041126;
+      color: #cbd9ef;
+
+      text-align: center;
+
+      padding: 27px;
+
+      font-size: 13px;
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media(max-width:900px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-container {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding-top: 90px;
+      }
+
+      .profile-wrapper {
+        transform: translateY(15px);
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .hero-location {
+        margin-bottom: 10px;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media(max-width:600px) {
+
+      nav {
+        width: 94%;
+      }
+
+      .nav-contact {
+        padding: 9px 12px;
+        font-size: 11px;
+      }
+
+      .hero {
+        margin-top: -25px;
+      }
+
+      .hero-container {
+        padding: 80px 18px 60px;
+      }
+
+      .hero h1 {
+        font-size: 39px;
+      }
+
+      .hero h2 {
+        font-size: 22px;
+      }
+
+      .hero-text {
+        font-size: 14px;
+      }
+
+      .profile-wrapper {
+        width: 230px;
+        height: 230px;
+      }
+
+      .profile-ring {
+        width: 215px;
+        height: 215px;
+      }
+
+      .profile-glow {
+        width: 235px;
+        height: 235px;
+      }
+
+      .profile-tag {
+        right: -8px;
+        bottom: 5px;
+        font-size: 10px;
+        padding: 8px 10px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .hero-btn {
+        width: 100%;
+      }
+
+      section {
+        padding: 50px 16px;
+      }
+
+      .project-image img {
+        height: 300px;
+      }
+
+      .contact-card {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        font-size: 27px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
+  <!-- ================= NAVBAR ================= -->
 
-<nav>
+  <nav>
 
-  <div class="logo">
-    <div class="logo-icon">&lt;/&gt;</div>
-    <div>
-      <h3>SadarUddin</h3>
-      <span>Flutter Developer</span>
-    </div>
-  </div>
+    <div class="brand">
 
-  <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#education">Education</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </div>
-
-  <a href="#contact" class="nav-btn">Let's Connect ✈</a>
-
-</nav>
-
-
-<!-- ================= HERO ================= -->
-
-<header class="hero">
-
-  <div class="hero-container">
-
-    <div class="hero-text">
-
-      <div class="badge">🟢 Software Engineering Student</div>
-
-      <h1>Hi, I'm <span>SadarUddin</span></h1>
-
-      <h2>Flutter Developer</h2>
-
-      <p class="hero-description">
-        Passionate about building modern, clean and user-friendly
-        mobile applications using Flutter and Dart.
-      </p>
-
-      <div class="hero-buttons">
-
-        <a class="hero-btn github"
-           href="https://github.com/sadaralimahar"
-           target="_blank">
-          ⚙ GitHub Profile
-        </a>
-
-        <a class="hero-btn linkedin"
-           href="https://www.linkedin.com/in/sadaralimahar"
-           target="_blank">
-          in &nbsp; LinkedIn
-        </a>
-
+      <div class="brand-logo">
+        SU
       </div>
 
-      <div class="location">
-        📍 Ghotki, Sindh, Pakistan
+      <div>
+        <h3>SadarUddin</h3>
+        <small>Flutter Developer</small>
       </div>
 
     </div>
 
-
-    <!-- CIRCLE PROFILE PHOTO -->
-
-    <div class="profile-area">
-
-      <div class="profile-ring">
-
-        <img
-          src="images/compressed_1000183387.jpg"
-          alt="SadarUddin"
-          class="profile-pic">
-
-      </div>
-
-      <div class="flutter-badge">
-        🦋
-      </div>
-
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </div>
 
-  </div>
+    <a href="#contact" class="nav-contact">
+      Let's Connect
+    </a>
 
-</header>
-
-
-<!-- ================= ABOUT / EDUCATION / SKILLS ================= -->
-
-<section id="about">
-
-  <div class="cards">
-
-    <div class="info-card">
-
-      <div class="info-icon">👤</div>
-
-      <h3>About Me</h3>
-
-      <p>
-        I am a Software Engineering student at University of
-        Sindh, Jamshoro and a passionate Flutter Developer.
-        I love creating modern, user-friendly and efficient
-        mobile applications.
-      </p>
-
-    </div>
+  </nav>
 
 
-    <div class="info-card" id="education">
+  <!-- ================= HERO ================= -->
 
-      <div class="info-icon">🎓</div>
+  <header class="hero">
 
-      <h3>Education</h3>
+    <div class="hero-container">
 
-      <p>
-        <strong>BS Software Engineering</strong><br>
-        University of Sindh, Jamshoro<br><br>
-        📍 Ghotki, Sindh, Pakistan
-      </p>
+      <div class="hero-content">
 
-    </div>
+        <div class="available">
+          <span class="green-dot"></span>
+          Available for Flutter Internship
+        </div>
 
+        <h1>
+          Hi, I'm <span>SadarUddin</span>
+        </h1>
 
-    <div class="info-card" id="skills">
+        <h2>
+          Flutter Developer
+        </h2>
 
-      <div class="info-icon">🚀</div>
-
-      <h3>Skills</h3>
-
-      <div class="skills">
-
-        <span class="skill">Flutter</span>
-        <span class="skill">Dart</span>
-        <span class="skill">Firebase</span>
-        <span class="skill">REST API</span>
-        <span class="skill">Git</span>
-        <span class="skill">GitHub</span>
-        <span class="skill">SQL</span>
-        <span class="skill">UI/UX</span>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= PROJECTS ================= -->
-
-<section id="projects">
-
-  <h2 class="projects-title">
-    ⭐ Featured <span>Projects</span>
-  </h2>
-
-
-  <div class="projects">
-
-
-    <!-- GROCERY -->
-
-    <div class="project">
-
-      <div class="project-image">
-
-        <img src="images/grocery-1.jpg"
-             alt="Grocery App">
-
-      </div>
-
-      <div class="project-body">
-
-        <h3>🛒 Grocery App</h3>
-
-        <p>
-          A modern Flutter grocery shopping application
-          with clean UI.
+        <p class="hero-text">
+          Software Engineering student passionate about building
+          modern, clean and user-friendly mobile applications
+          with Flutter and Dart.
         </p>
 
-        <div class="tech">
-          <span>Flutter</span>
-          <span>Dart</span>
-          <span>Firebase</span>
+        <div class="hero-buttons">
+
+          <a
+            href="https://github.com/sadaralimahar"
+            target="_blank"
+            class="hero-btn btn-blue">
+            ⚙ GitHub Profile
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/sadaralimahar"
+            target="_blank"
+            class="hero-btn btn-white">
+            in &nbsp; LinkedIn
+          </a>
+
         </div>
 
-        <div class="project-buttons">
+        <div class="hero-location">
+          📍 Ghotki, Sindh, Pakistan
+        </div>
 
-          <a class="live"
-             href="https://sadaralimahar.github.io/Grocery_app/"
-             target="_blank">
-            🚀 Live Demo
-          </a>
+      </div>
 
-          <a class="code"
-             href="https://github.com/sadaralimahar/Grocery_app"
-             target="_blank">
-            ⚙ GitHub
-          </a>
 
+      <!-- PROFILE -->
+
+      <div class="profile-wrapper">
+
+        <div class="profile-glow"></div>
+
+        <div class="profile-ring">
+
+          <img
+            src="images/compressed_1000183387.jpg"
+            alt="SadarUddin Profile"
+            class="profile-pic">
+
+        </div>
+
+        <div class="profile-tag">
+          Flutter Developer
         </div>
 
       </div>
 
     </div>
 
+  </header>
 
-    <!-- WHATSAPP -->
 
-    <div class="project">
+  <!-- ================= ABOUT ================= -->
 
-      <div class="project-image">
+  <section id="about">
 
-        <img src="images/whatsapp-1.jpg"
-             alt="WhatsApp Clone">
+    <h2 class="section-title">
+      About <span>Me</span>
+    </h2>
 
-      </div>
+    <div class="info-grid">
 
-      <div class="project-body">
+      <div class="info-card">
 
-        <h3>🟢 WhatsApp Clone</h3>
+        <div class="info-icon">
+          👤
+        </div>
+
+        <h3>Who I Am</h3>
 
         <p>
-          A Flutter WhatsApp-style application with
-          modern UI and chat features.
+          I'm SadarUddin, a Software Engineering student at
+          the University of Sindh, Jamshoro, and a passionate
+          Flutter Developer.
         </p>
 
-        <div class="tech">
-          <span>Flutter</span>
-          <span>Dart</span>
-          <span>UI/UX</span>
-        </div>
-
-        <div class="project-buttons">
-
-          <a class="live"
-             href="https://sadaralimahar.github.io/whatsapp_clone/"
-             target="_blank">
-            🚀 Live Demo
-          </a>
-
-          <a class="code"
-             href="https://github.com/sadaralimahar/whatsapp_clone"
-             target="_blank">
-            ⚙ GitHub
-          </a>
-
-        </div>
-
       </div>
 
-    </div>
 
+      <div class="info-card" id="education">
 
-    <!-- TODO -->
+        <div class="info-icon">
+          🎓
+        </div>
 
-    <div class="project">
-
-      <div class="project-image">
-
-        <img src="images/todo-1.jpg"
-             alt="Todo Clone">
-
-      </div>
-
-      <div class="project-body">
-
-        <h3>🟣 Todo Clone</h3>
+        <h3>Education</h3>
 
         <p>
-          A Todo application for managing tasks with
-          a simple and clean UI.
+          <strong>BS Software Engineering</strong><br>
+          University of Sindh, Jamshoro<br>
+          Ghotki, Sindh, Pakistan
         </p>
 
-        <div class="tech">
-          <span>Flutter</span>
-          <span>Dart</span>
-          <span>State Mgmt</span>
+      </div>
+
+
+      <div class="info-card" id="skills">
+
+        <div class="info-icon">
+          🚀
         </div>
 
-        <div class="project-buttons">
+        <h3>Skills</h3>
 
-          <a class="live"
-             href="https://sadaralimahar.github.io/todo_clone/"
-             target="_blank">
-            🚀 Live Demo
-          </a>
+        <div class="skills">
 
-          <a class="code"
-             href="https://github.com/sadaralimahar/todo_clone"
-             target="_blank">
-            ⚙ GitHub
-          </a>
+          <span class="skill">Flutter</span>
+          <span class="skill">Dart</span>
+          <span class="skill">Firebase</span>
+          <span class="skill">REST API</span>
+          <span class="skill">Git</span>
+          <span class="skill">GitHub</span>
+          <span class="skill">SQL</span>
+          <span class="skill">UI/UX</span>
 
         </div>
 
@@ -893,137 +928,195 @@ footer{
 
     </div>
 
+  </section>
 
-    <!-- SNEAKERTUTE -->
 
-    <div class="project">
+  <!-- ================= PROJECTS ================= -->
 
-      <div class="project-image">
+  <section id="projects">
 
-        <img src="images/sneakertute-1.jpg"
-             alt="SneakerTute Clone">
+    <h2 class="section-title">
+      Featured <span>Projects</span>
+    </h2>
 
-      </div>
+    <div class="projects">
 
-      <div class="project-body">
 
-        <h3>👟 SneakerTute Clone</h3>
+      <!-- GROCERY -->
 
-        <p>
-          A sneaker shopping app with modern product
-          browsing UI.
-        </p>
+      <div class="project">
 
-        <div class="tech">
-          <span>Flutter</span>
-          <span>Dart</span>
-          <span>Shopping UI</span>
-        </div>
+        <div class="project-image">
 
-        <div class="project-buttons">
-
-          <a class="live"
-             href="https://sadaralimahar.github.io/sneakertute_clone/"
-             target="_blank">
-            🚀 Live Demo
-          </a>
-
-          <a class="code"
-             href="https://github.com/sadaralimahar/sneakertute_clone"
-             target="_blank">
-            ⚙ GitHub
-          </a>
+          <img
+            src="images/grocery-1.jpg"
+            alt="Grocery App">
 
         </div>
 
+        <div class="project-content">
+
+          <h3>🛒 Grocery App</h3>
+
+          <p>
+            Modern Flutter grocery shopping application
+            with a clean and user-friendly interface.
+          </p>
+
+          <div class="tech">
+            <span>Flutter</span>
+            <span>Dart</span>
+            <span>Firebase</span>
+          </div>
+
+          <div class="project-buttons">
+
+            <a
+              href="https://sadaralimahar.github.io/Grocery_app/"
+              target="_blank"
+              class="live">
+              🚀 Live Demo
+            </a>
+
+            <a
+              href="https://github.com/sadaralimahar/Grocery_app"
+              target="_blank"
+              class="github">
+              ⚙ GitHub
+            </a>
+
+          </div>
+
+        </div>
+
       </div>
 
-    </div>
 
-  </div>
+      <!-- WHATSAPP -->
 
-</section>
+      <div class="project">
 
+        <div class="project-image">
 
-<!-- ================= CONTACT ================= -->
+          <img
+            src="images/whatsapp-1.jpg"
+            alt="WhatsApp Clone">
 
-<section id="contact">
+        </div>
 
-  <div class="contact-box">
+        <div class="project-content">
 
-    <div>
+          <h3>🟢 WhatsApp Clone</h3>
 
-      <div class="contact-icon">✉</div>
+          <p>
+            Flutter WhatsApp-style application focused
+            on modern mobile UI design.
+          </p>
 
-      <h3>Let's Work Together!</h3>
+          <div class="tech">
+            <span>Flutter</span>
+            <span>Dart</span>
+            <span>UI/UX</span>
+          </div>
 
-      <p>
-        I am currently looking for Flutter development
-        internship opportunities.
-      </p>
+          <div class="project-buttons">
 
-    </div>
+            <a
+              href="https://sadaralimahar.github.io/whatsapp_clone/"
+              target="_blank"
+              class="live">
+              🚀 Live Demo
+            </a>
 
+            <a
+              href="https://github.com/sadaralimahar/whatsapp_clone"
+              target="_blank"
+              class="github">
+              ⚙ GitHub
+            </a>
 
-    <div>
+          </div>
 
-      <strong>📧 Email</strong>
+        </div>
 
-      <p>
-        <a href="mailto:sadaralimahar78@gmail.com">
-          sadaralimahar78@gmail.com
-        </a>
-      </p>
-
-    </div>
-
-
-    <div>
-
-      <strong>📞 Phone</strong>
-
-      <p>
-        <a href="tel:03230338983">
-          03230338983
-        </a>
-      </p>
-
-      <p>📍 Ghotki, Sindh, Pakistan</p>
-
-    </div>
+      </div>
 
 
-    <div class="contact-buttons">
+      <!-- TODO -->
 
-      <a class="linkedin-btn"
-         href="https://www.linkedin.com/in/sadaralimahar"
-         target="_blank">
-        LinkedIn Profile
-      </a>
+      <div class="project">
 
-      <a class="github-btn"
-         href="https://github.com/sadaralimahar"
-         target="_blank">
-        GitHub Profile
-      </a>
+        <div class="project-image">
 
-    </div>
+          <img
+            src="images/todo-1.jpg"
+            alt="Todo Clone">
 
-  </div>
+        </div>
 
-</section>
+        <div class="project-content">
+
+          <h3>📝 Todo Clone</h3>
+
+          <p>
+            Simple Flutter Todo application for creating,
+            completing and managing daily tasks.
+          </p>
+
+          <div class="tech">
+            <span>Flutter</span>
+            <span>Dart</span>
+            <span>State Management</span>
+          </div>
+
+          <div class="project-buttons">
+
+            <a
+              href="https://sadaralimahar.github.io/todo_clone/"
+              target="_blank"
+              class="live">
+              🚀 Live Demo
+            </a>
+
+            <a
+              href="https://github.com/sadaralimahar/todo_clone"
+              target="_blank"
+              class="github">
+              ⚙ GitHub
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
 
 
-<!-- ================= FOOTER ================= -->
+      <!-- SNEAKERTUTE -->
 
-<footer>
+      <div class="project">
 
-  <p>
-    © 2026 SadarUddin | Flutter Developer |
-    All Rights Reserved ❤️
-  </p>
+        <div class="project-image">
 
-</footer>
+          <img
+            src="images/sneakertute-1.jpg"
+            alt="SneakerTute Clone">
 
-</body>
-</html>
+        </div>
+
+        <div class="project-content">
+
+          <h3>👟 SneakerTute Clone</h3>
+
+          <p>
+            Modern Flutter sneaker shopping application
+            focused on product browsing and shopping UI.
+          </p>
+
+          <div class="tech">
+            <span>Flutter</span>
+            <span>Dart</span>
+            <span>Shopping UI</span>
+          </div>
+
+      
