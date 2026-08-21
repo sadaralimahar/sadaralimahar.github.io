@@ -4,25 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SadarUddin — Flutter Developer</title>
+<title>SadarUddin | Flutter Developer ❤️</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
-
-:root{
-  --bg:#050505;
-  --card:#0c0c0c;
-  --card2:#101010;
-  --text:#f5f5f5;
-  --muted:#8b8b8b;
-  --line:#1c1c1c;
-  --blue:#4da3ff;
-  --blue2:#147cff;
-  --green:#38d996;
-}
 
 *{
   margin:0;
@@ -35,40 +23,90 @@ html{
 }
 
 body{
-  background:var(--bg);
-  color:var(--text);
+  background:#050204;
+  color:#fff;
   font-family:"DM Sans",sans-serif;
   overflow-x:hidden;
 }
 
-/* ================= BACKGROUND ================= */
+/* ================= LOVE BACKGROUND ================= */
 
 body::before{
   content:"";
   position:fixed;
-  width:600px;
-  height:600px;
-  left:-300px;
-  top:-250px;
-  border-radius:50%;
-  background:rgba(20,124,255,.09);
-  filter:blur(100px);
+  inset:0;
   pointer-events:none;
-  z-index:-1;
+  z-index:-5;
+
+  background:
+    radial-gradient(circle at 15% 20%,rgba(255,20,90,.18),transparent 25%),
+    radial-gradient(circle at 85% 35%,rgba(255,0,76,.14),transparent 28%),
+    radial-gradient(circle at 50% 90%,rgba(255,40,100,.10),transparent 30%),
+    linear-gradient(135deg,#050204,#0c0308,#050204);
 }
 
 body::after{
   content:"";
   position:fixed;
-  width:500px;
-  height:500px;
-  right:-250px;
-  bottom:-200px;
-  border-radius:50%;
-  background:rgba(20,124,255,.07);
-  filter:blur(100px);
+  inset:0;
+  pointer-events:none;
+  z-index:-4;
+  opacity:.35;
+
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+
+  background-size:75px 75px;
+}
+
+/* Floating hearts */
+
+.hearts{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
   pointer-events:none;
   z-index:-1;
+}
+
+.heart{
+  position:absolute;
+  bottom:-80px;
+  color:#ff3b7a;
+  font-size:18px;
+  opacity:0;
+  filter:drop-shadow(0 0 12px rgba(255,30,100,.6));
+  animation:floatHeart linear infinite;
+}
+
+.heart:nth-child(1){left:8%;animation-duration:12s;animation-delay:1s}
+.heart:nth-child(2){left:20%;animation-duration:15s;animation-delay:4s}
+.heart:nth-child(3){left:35%;animation-duration:11s;animation-delay:2s}
+.heart:nth-child(4){left:50%;animation-duration:17s;animation-delay:6s}
+.heart:nth-child(5){left:66%;animation-duration:13s;animation-delay:3s}
+.heart:nth-child(6){left:78%;animation-duration:16s;animation-delay:7s}
+.heart:nth-child(7){left:91%;animation-duration:12s;animation-delay:5s}
+
+@keyframes floatHeart{
+
+  0%{
+    transform:translateY(0) scale(.7) rotate(0deg);
+    opacity:0;
+  }
+
+  15%{
+    opacity:.65;
+  }
+
+  50%{
+    transform:translateY(-50vh) translateX(30px) scale(1) rotate(12deg);
+  }
+
+  100%{
+    transform:translateY(-115vh) translateX(-40px) scale(.7) rotate(-15deg);
+    opacity:0;
+  }
 }
 
 /* ================= NAVBAR ================= */
@@ -87,15 +125,19 @@ body::after{
 
   padding:13px 15px 13px 20px;
 
-  border:1px solid rgba(255,255,255,.08);
+  border:1px solid rgba(255,80,130,.16);
   border-radius:18px;
 
-  background:rgba(8,8,8,.75);
-  backdrop-filter:blur(20px);
+  background:rgba(10,3,7,.76);
+  backdrop-filter:blur(22px);
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.4),
+    0 0 30px rgba(255,20,90,.05);
 }
 
 .logo{
-  color:white;
+  color:#fff;
   text-decoration:none;
   font-family:"Space Grotesk",sans-serif;
   font-size:20px;
@@ -103,7 +145,7 @@ body::after{
 }
 
 .logo span{
-  color:var(--blue);
+  color:#ff3d7b;
 }
 
 .nav-links{
@@ -112,7 +154,7 @@ body::after{
 }
 
 .nav-links a{
-  color:#888;
+  color:#999;
   text-decoration:none;
   font-size:12px;
   font-weight:600;
@@ -120,17 +162,18 @@ body::after{
 }
 
 .nav-links a:hover{
-  color:white;
+  color:#ff4d87;
 }
 
 .nav-contact{
-  color:#050505;
-  background:white;
+  color:#fff;
+  background:linear-gradient(135deg,#ff174f,#ff4d91);
   text-decoration:none;
   padding:9px 15px;
   border-radius:10px;
   font-size:11px;
   font-weight:700;
+  box-shadow:0 8px 25px rgba(255,20,80,.18);
   transition:.3s;
 }
 
@@ -148,17 +191,18 @@ body::after{
   overflow:hidden;
 }
 
-.hero-grid{
+.hero-glow{
   position:absolute;
-  inset:0;
+  width:650px;
+  height:650px;
+  right:-260px;
+  top:80px;
 
-  background-image:
-    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  border-radius:50%;
 
-  background-size:80px 80px;
+  background:rgba(255,20,80,.12);
+  filter:blur(100px);
 
-  mask-image:linear-gradient(to bottom,black,transparent);
   pointer-events:none;
 }
 
@@ -183,7 +227,7 @@ body::after{
 }
 
 .hero-small span{
-  color:var(--green);
+  color:#ff3d7b;
 }
 
 .hero h1{
@@ -194,13 +238,14 @@ body::after{
   margin-bottom:25px;
 }
 
-.hero h1 .blue{
-  color:var(--blue);
+.hero h1 .pink{
+  color:#ff3d7b;
+  text-shadow:0 0 40px rgba(255,40,100,.25);
 }
 
 .hero-description{
   max-width:580px;
-  color:#8c8c8c;
+  color:#92909a;
   font-size:16px;
   line-height:1.8;
 }
@@ -223,21 +268,27 @@ body::after{
 
 .button-primary{
   color:white;
-  background:var(--blue2);
-  box-shadow:0 15px 40px rgba(20,124,255,.2);
+  background:linear-gradient(135deg,#ff174f,#ff4d91);
+  box-shadow:0 15px 40px rgba(255,20,80,.2);
 }
 
 .button-secondary{
   color:white;
-  border:1px solid #252525;
-  background:#0c0c0c;
+  border:1px solid #282025;
+  background:#0d080a;
 }
 
 .button:hover{
   transform:translateY(-4px);
 }
 
-/* ================= HERO PHOTO ================= */
+.hero-location{
+  margin-top:20px;
+  color:#666;
+  font-size:12px;
+}
+
+/* ================= PHOTO ================= */
 
 .hero-photo{
   position:relative;
@@ -254,13 +305,13 @@ body::after{
 
   background:linear-gradient(
     135deg,
-    #333,
-    #147cff,
-    #111
+    #fff,
+    #ff3d7b,
+    #9b0037
   );
 
   box-shadow:
-    0 0 80px rgba(20,124,255,.18),
+    0 0 80px rgba(255,20,80,.20),
     0 0 0 1px rgba(255,255,255,.08);
 
   animation:photoFloat 5s ease-in-out infinite;
@@ -272,13 +323,14 @@ body::after{
   border-radius:50%;
   object-fit:cover;
   object-position:center 20%;
-  border:5px solid #080808;
+  border:5px solid #090306;
 }
 
 @keyframes photoFloat{
   0%,100%{
     transform:translateY(0);
   }
+
   50%{
     transform:translateY(-14px);
   }
@@ -287,20 +339,22 @@ body::after{
 .photo-tag{
   position:absolute;
   bottom:15px;
-  right:20px;
+  right:10px;
 
   padding:10px 14px;
 
-  background:#0b0b0b;
-  border:1px solid #262626;
+  background:#0d0508;
+  border:1px solid #3a1724;
   border-radius:12px;
 
   font-size:10px;
   color:#aaa;
+
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
 }
 
 .photo-tag strong{
-  color:#4da3ff;
+  color:#ff4d87;
 }
 
 /* ================= SECTIONS ================= */
@@ -320,7 +374,7 @@ body::after{
 }
 
 .section-number{
-  color:#444;
+  color:#4c333c;
   font-family:"Space Grotesk",sans-serif;
   font-size:13px;
 }
@@ -332,7 +386,7 @@ body::after{
 }
 
 .section-title span{
-  color:var(--blue);
+  color:#ff3d7b;
 }
 
 .section-subtitle{
@@ -351,13 +405,18 @@ body::after{
 
   padding:40px;
 
-  background:linear-gradient(145deg,#0d0d0d,#080808);
-  border:1px solid var(--line);
+  background:
+    radial-gradient(circle at 0% 0%,rgba(255,20,80,.08),transparent 35%),
+    #0b0709;
+
+  border:1px solid #21151a;
   border-radius:25px;
+
+  box-shadow:0 25px 70px rgba(0,0,0,.25);
 }
 
 .about-card p{
-  color:#8c8c8c;
+  color:#91888d;
   font-size:15px;
   line-height:1.9;
 }
@@ -371,13 +430,13 @@ body::after{
 
 .about-item{
   padding:18px;
-  border:1px solid #1b1b1b;
+  border:1px solid #21171b;
   border-radius:15px;
-  background:#0a0a0a;
+  background:#0b0709;
 }
 
 .about-item small{
-  color:#555;
+  color:#60454f;
   font-size:10px;
   text-transform:uppercase;
   letter-spacing:1px;
@@ -400,15 +459,16 @@ body::after{
 
 .skill{
   padding:25px 20px;
-  border:1px solid var(--line);
+  border:1px solid #1d1518;
   border-radius:18px;
-  background:#090909;
+  background:#0a0708;
   transition:.3s;
 }
 
 .skill:hover{
   transform:translateY(-5px);
-  border-color:#2a2a2a;
+  border-color:#47202d;
+  box-shadow:0 15px 35px rgba(255,20,80,.06);
 }
 
 .skill-icon{
@@ -435,21 +495,22 @@ body::after{
 }
 
 .project{
-  border:1px solid var(--line);
+  border:1px solid #1d1518;
   border-radius:22px;
   overflow:hidden;
-  background:#090909;
+  background:#090607;
   transition:.4s;
 }
 
 .project:hover{
   transform:translateY(-8px);
-  border-color:#2b2b2b;
+  border-color:#542333;
+  box-shadow:0 20px 50px rgba(255,20,80,.06);
 }
 
 .project-image{
   padding:9px;
-  background:#050505;
+  background:#050304;
 }
 
 .project-image img{
@@ -482,7 +543,7 @@ body::after{
 }
 
 .project-number{
-  color:#444;
+  color:#4d323c;
   font-size:11px;
 }
 
@@ -501,9 +562,9 @@ body::after{
 }
 
 .tech span{
-  color:#8e8e8e;
-  border:1px solid #222;
-  background:#0d0d0d;
+  color:#a27d88;
+  border:1px solid #2a1b21;
+  background:#0d080a;
   padding:5px 9px;
   border-radius:20px;
   font-size:9px;
@@ -527,13 +588,13 @@ body::after{
 
 .project-live{
   color:white;
-  background:#147cff;
+  background:linear-gradient(135deg,#ff174f,#ff4d91);
 }
 
 .project-github{
   color:#aaa;
   background:#111;
-  border:1px solid #222;
+  border:1px solid #292025;
 }
 
 .project-links a:hover{
@@ -545,15 +606,15 @@ body::after{
 .education{
   position:relative;
   padding-left:30px;
-  border-left:1px solid #252525;
+  border-left:1px solid #2a171f;
 }
 
 .edu-card{
   position:relative;
   padding:28px;
   margin-bottom:18px;
-  background:#090909;
-  border:1px solid var(--line);
+  background:#090607;
+  border:1px solid #1d1518;
   border-radius:18px;
 }
 
@@ -563,14 +624,14 @@ body::after{
   width:9px;
   height:9px;
   border-radius:50%;
-  background:var(--blue);
+  background:#ff3d7b;
   left:-35px;
   top:35px;
-  box-shadow:0 0 15px rgba(77,163,255,.5);
+  box-shadow:0 0 15px rgba(255,40,100,.6);
 }
 
 .edu-card small{
-  color:#4da3ff;
+  color:#ff3d7b;
   font-size:10px;
   text-transform:uppercase;
   letter-spacing:1px;
@@ -596,12 +657,12 @@ body::after{
 
   text-align:center;
 
-  border:1px solid #1c1c1c;
+  border:1px solid #29151d;
   border-radius:28px;
 
   background:
-    radial-gradient(circle at 50% 0%,rgba(20,124,255,.14),transparent 40%),
-    #090909;
+    radial-gradient(circle at 50% 0%,rgba(255,20,80,.16),transparent 42%),
+    #090506;
 }
 
 .contact-box h2{
@@ -612,7 +673,7 @@ body::after{
 }
 
 .contact-box h2 span{
-  color:var(--blue);
+  color:#ff3d7b;
 }
 
 .contact-box p{
@@ -634,7 +695,7 @@ body::after{
   color:white;
   text-decoration:none;
   padding:12px 18px;
-  border:1px solid #252525;
+  border:1px solid #292025;
   border-radius:10px;
   font-size:11px;
   font-weight:700;
@@ -642,8 +703,8 @@ body::after{
 }
 
 .contact-link:hover{
-  border-color:#4da3ff;
-  color:#4da3ff;
+  border-color:#ff3d7b;
+  color:#ff4d87;
 }
 
 /* ================= FOOTER ================= */
@@ -652,7 +713,7 @@ footer{
   width:min(1100px,92%);
   margin:auto;
   padding:35px 0;
-  border-top:1px solid #151515;
+  border-top:1px solid #191216;
 
   display:flex;
   justify-content:space-between;
@@ -662,7 +723,7 @@ footer{
   font-size:11px;
 }
 
-/* ================= RESPONSIVE ================= */
+/* ================= MOBILE ================= */
 
 @media(max-width:900px){
 
@@ -741,6 +802,7 @@ footer{
 
   .button{
     width:100%;
+    text-align:center;
   }
 
   .photo-circle{
@@ -804,6 +866,19 @@ footer{
 
 <body>
 
+<!-- FLOATING HEARTS -->
+
+<div class="hearts">
+  <span class="heart">♥</span>
+  <span class="heart">♡</span>
+  <span class="heart">♥</span>
+  <span class="heart">♡</span>
+  <span class="heart">♥</span>
+  <span class="heart">♡</span>
+  <span class="heart">♥</span>
+</div>
+
+
 <!-- NAVBAR -->
 
 <nav class="nav">
@@ -820,7 +895,7 @@ footer{
   </div>
 
   <a href="#contact" class="nav-contact">
-    Let's Talk
+    Let's Talk ❤️
   </a>
 
 </nav>
@@ -830,7 +905,7 @@ footer{
 
 <header class="hero">
 
-  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
 
   <div class="hero-inner">
 
@@ -841,7 +916,7 @@ footer{
       </div>
 
       <h1>
-        Building <span class="blue">Digital</span><br>
+        Building <span class="pink">Digital</span><br>
         Experiences.
       </h1>
 
@@ -868,8 +943,14 @@ footer{
 
       </div>
 
+      <div class="hero-location">
+        📍 Ghotki, Sindh, Pakistan
+      </div>
+
     </div>
 
+
+    <!-- PHOTO -->
 
     <div class="hero-photo">
 
@@ -882,7 +963,7 @@ footer{
       </div>
 
       <div class="photo-tag">
-        <strong>Flutter</strong> Developer
+        <strong>Flutter</strong> Developer ❤️
       </div>
 
     </div>
@@ -945,7 +1026,7 @@ footer{
 
       <div class="about-item">
         <small>Goal</small>
-        <strong>Build Better Digital Products</strong>
+        <strong>Build Better Digital Products ❤️</strong>
       </div>
 
     </div>
@@ -1052,28 +1133,21 @@ footer{
   <div class="project-list">
 
 
-    <!-- PROJECT 01 -->
+    <!-- GROCERY -->
 
     <article class="project">
 
       <div class="project-image">
-
         <img
           src="images/grocery-1.jpg"
           alt="Grocery App">
-
       </div>
 
       <div class="project-body">
 
         <div class="project-top">
-
           <h3>Grocery App</h3>
-
-          <span class="project-number">
-            01
-          </span>
-
+          <span class="project-number">01</span>
         </div>
 
         <p>
@@ -1111,133 +1185,23 @@ footer{
     </article>
 
 
-    <!-- PROJECT 02 -->
+    <!-- WHATSAPP -->
 
     <article class="project">
 
       <div class="project-image">
-
         <img
           src="images/whatsapp-1.jpg"
           alt="WhatsApp Clone">
-
       </div>
 
       <div class="project-body">
 
         <div class="project-top">
-
           <h3>WhatsApp Clone</h3>
-
-          <span class="project-number">
-            02
-          </span>
-
+          <span class="project-number">02</span>
         </div>
 
         <p>
           A WhatsApp-inspired Flutter application
-          focused on recreating a modern messaging
-          interface.
-        </p>
-
-        <div class="tech">
-          <span>Flutter</span>
-          <span>Dart</span>
-          <span>UI/UX</span>
-        </div>
-
-        <div class="project-links">
-
-          <a
-            href="https://sadaralimahar.github.io/whatsapp_clone/"
-            target="_blank"
-            class="project-live">
-            Live Demo ↗
-          </a>
-
-          <a
-            href="https://github.com/sadaralimahar/whatsapp_clone"
-            target="_blank"
-            class="project-github">
-            GitHub ↗
-          </a>
-
-        </div>
-
-      </div>
-
-    </article>
-
-
-    <!-- PROJECT 03 -->
-
-    <article class="project">
-
-      <div class="project-image">
-
-        <img
-          src="images/todo-1.jpg"
-          alt="Todo Clone">
-
-      </div>
-
-      <div class="project-body">
-
-        <div class="project-top">
-
-          <h3>Todo Clone</h3>
-
-          <span class="project-number">
-            03
-          </span>
-
-        </div>
-
-        <p>
-          A simple and practical Flutter application
-          for creating and managing daily tasks.
-        </p>
-
-        <div class="tech">
-          <span>Flutter</span>
-          <span>Dart</span>
-          <span>State Management</span>
-        </div>
-
-        <div class="project-links">
-
-          <a
-            href="https://sadaralimahar.github.io/todo_clone/"
-            target="_blank"
-            class="project-live">
-            Live Demo ↗
-          </a>
-
-          <a
-            href="https://github.com/sadaralimahar/todo_clone"
-            target="_blank"
-            class="project-github">
-            GitHub ↗
-          </a>
-
-        </div>
-
-      </div>
-
-    </article>
-
-
-    <!-- PROJECT 04 -->
-
-    <article class="project">
-
-      <div class="project-image">
-
-        <img
-          src="images/sneakertute-1.jpg"
-          alt="SneakerTute Clone">
-
-      </div>
-
-      <div class="project-body">
+          focused on r
