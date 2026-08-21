@@ -4,14 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SadarUddin | Flutter Developer ❤️</title>
+<title>SadarUddin — Flutter Developer</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
-
 *{
   margin:0;
   padding:0;
@@ -23,122 +22,105 @@ html{
 }
 
 body{
-  background:#050204;
-  color:#fff;
   font-family:"DM Sans",sans-serif;
+  background:#050305;
+  color:#fff;
   overflow-x:hidden;
 }
 
-/* ================= LOVE BACKGROUND ================= */
+/* ================= BACKGROUND ================= */
 
-body::before{
+body:before{
   content:"";
   position:fixed;
   inset:0;
-  pointer-events:none;
-  z-index:-5;
-
+  z-index:-3;
   background:
-    radial-gradient(circle at 15% 20%,rgba(255,20,90,.18),transparent 25%),
-    radial-gradient(circle at 85% 35%,rgba(255,0,76,.14),transparent 28%),
-    radial-gradient(circle at 50% 90%,rgba(255,40,100,.10),transparent 30%),
-    linear-gradient(135deg,#050204,#0c0308,#050204);
+    radial-gradient(circle at 10% 15%,rgba(255,0,85,.16),transparent 27%),
+    radial-gradient(circle at 90% 25%,rgba(255,30,100,.13),transparent 28%),
+    radial-gradient(circle at 50% 80%,rgba(170,0,60,.10),transparent 30%),
+    linear-gradient(135deg,#040204,#0d0509,#050305);
 }
 
-body::after{
+body:after{
   content:"";
   position:fixed;
   inset:0;
-  pointer-events:none;
-  z-index:-4;
-  opacity:.35;
-
+  z-index:-2;
+  opacity:.25;
   background-image:
     linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
     linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
-
-  background-size:75px 75px;
+  background-size:70px 70px;
+  mask-image:linear-gradient(to bottom,black,transparent 90%);
 }
 
-/* Floating hearts */
+/* HEARTS */
 
 .hearts{
   position:fixed;
   inset:0;
-  overflow:hidden;
   pointer-events:none;
+  overflow:hidden;
   z-index:-1;
 }
 
 .heart{
   position:absolute;
-  bottom:-80px;
-  color:#ff3b7a;
+  bottom:-50px;
+  color:#ff3476;
   font-size:18px;
   opacity:0;
-  filter:drop-shadow(0 0 12px rgba(255,30,100,.6));
-  animation:floatHeart linear infinite;
+  filter:drop-shadow(0 0 12px #ff174f);
+  animation:rise 14s linear infinite;
 }
 
-.heart:nth-child(1){left:8%;animation-duration:12s;animation-delay:1s}
-.heart:nth-child(2){left:20%;animation-duration:15s;animation-delay:4s}
-.heart:nth-child(3){left:35%;animation-duration:11s;animation-delay:2s}
-.heart:nth-child(4){left:50%;animation-duration:17s;animation-delay:6s}
-.heart:nth-child(5){left:66%;animation-duration:13s;animation-delay:3s}
-.heart:nth-child(6){left:78%;animation-duration:16s;animation-delay:7s}
-.heart:nth-child(7){left:91%;animation-duration:12s;animation-delay:5s}
+.heart:nth-child(1){left:7%;animation-delay:1s}
+.heart:nth-child(2){left:18%;animation-delay:5s}
+.heart:nth-child(3){left:31%;animation-delay:2s}
+.heart:nth-child(4){left:48%;animation-delay:8s}
+.heart:nth-child(5){left:63%;animation-delay:4s}
+.heart:nth-child(6){left:77%;animation-delay:7s}
+.heart:nth-child(7){left:91%;animation-delay:3s}
 
-@keyframes floatHeart{
-
+@keyframes rise{
   0%{
-    transform:translateY(0) scale(.7) rotate(0deg);
+    transform:translateY(0) scale(.5);
     opacity:0;
   }
-
-  15%{
-    opacity:.65;
-  }
-
-  50%{
-    transform:translateY(-50vh) translateX(30px) scale(1) rotate(12deg);
-  }
-
+  15%{opacity:.55}
+  70%{opacity:.25}
   100%{
-    transform:translateY(-115vh) translateX(-40px) scale(.7) rotate(-15deg);
+    transform:translateY(-110vh) translateX(40px) scale(1.1);
     opacity:0;
   }
 }
 
-/* ================= NAVBAR ================= */
+/* ================= NAV ================= */
 
-.nav{
+nav{
   position:fixed;
-  top:18px;
+  top:16px;
   left:50%;
   transform:translateX(-50%);
-  width:min(1100px,92%);
-  z-index:1000;
+  width:92%;
+  max-width:1120px;
+  z-index:100;
 
+  padding:14px 18px;
   display:flex;
   align-items:center;
   justify-content:space-between;
 
-  padding:13px 15px 13px 20px;
-
-  border:1px solid rgba(255,80,130,.16);
+  background:rgba(9,4,7,.78);
+  border:1px solid rgba(255,255,255,.08);
   border-radius:18px;
+  backdrop-filter:blur(20px);
 
-  background:rgba(10,3,7,.76);
-  backdrop-filter:blur(22px);
-
-  box-shadow:
-    0 20px 60px rgba(0,0,0,.4),
-    0 0 30px rgba(255,20,90,.05);
+  box-shadow:0 20px 60px rgba(0,0,0,.35);
 }
 
 .logo{
-  color:#fff;
-  text-decoration:none;
   font-family:"Space Grotesk",sans-serif;
   font-size:20px;
   font-weight:700;
@@ -154,7 +136,7 @@ body::after{
 }
 
 .nav-links a{
-  color:#999;
+  color:#888;
   text-decoration:none;
   font-size:12px;
   font-weight:600;
@@ -162,23 +144,17 @@ body::after{
 }
 
 .nav-links a:hover{
-  color:#ff4d87;
+  color:#ff3d7b;
 }
 
-.nav-contact{
-  color:#fff;
-  background:linear-gradient(135deg,#ff174f,#ff4d91);
+.nav-btn{
   text-decoration:none;
-  padding:9px 15px;
-  border-radius:10px;
+  color:#fff;
   font-size:11px;
   font-weight:700;
-  box-shadow:0 8px 25px rgba(255,20,80,.18);
-  transition:.3s;
-}
-
-.nav-contact:hover{
-  transform:translateY(-2px);
+  padding:10px 15px;
+  border-radius:10px;
+  background:linear-gradient(135deg,#ff174f,#ff4d91);
 }
 
 /* ================= HERO ================= */
@@ -188,539 +164,511 @@ body::after{
   display:flex;
   align-items:center;
   position:relative;
-  overflow:hidden;
-}
-
-.hero-glow{
-  position:absolute;
-  width:650px;
-  height:650px;
-  right:-260px;
-  top:80px;
-
-  border-radius:50%;
-
-  background:rgba(255,20,80,.12);
-  filter:blur(100px);
-
-  pointer-events:none;
 }
 
 .hero-inner{
-  width:min(1100px,92%);
+  width:min(1120px,92%);
   margin:auto;
+  padding:145px 0 80px;
 
   display:grid;
-  grid-template-columns:1.2fr .8fr;
+  grid-template-columns:1.15fr .85fr;
   align-items:center;
   gap:70px;
-
-  padding:150px 0 80px;
 }
 
-.hero-small{
-  color:#777;
-  font-size:12px;
-  letter-spacing:2px;
-  text-transform:uppercase;
+.availability{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+
+  padding:8px 13px;
+  border:1px solid #32151f;
+  border-radius:30px;
+
+  background:#0d0609;
+  color:#aaa;
+  font-size:10px;
   margin-bottom:25px;
 }
 
-.hero-small span{
-  color:#ff3d7b;
+.availability i{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#27e68b;
+  box-shadow:0 0 12px #27e68b;
 }
 
 .hero h1{
   font-family:"Space Grotesk",sans-serif;
-  font-size:clamp(52px,7vw,88px);
+  font-size:clamp(50px,7vw,84px);
   line-height:.95;
   letter-spacing:-5px;
-  margin-bottom:25px;
 }
 
-.hero h1 .pink{
+.hero h1 span{
   color:#ff3d7b;
-  text-shadow:0 0 40px rgba(255,40,100,.25);
+  text-shadow:0 0 35px rgba(255,30,100,.25);
 }
 
-.hero-description{
-  max-width:580px;
-  color:#92909a;
-  font-size:16px;
+.hero h2{
+  font-size:25px;
+  margin:22px 0 15px;
+}
+
+.hero-text{
+  max-width:570px;
+  color:#858087;
+  font-size:15px;
   line-height:1.8;
 }
 
-.hero-buttons{
+.buttons{
   display:flex;
-  gap:12px;
-  margin-top:35px;
+  gap:10px;
   flex-wrap:wrap;
+  margin-top:30px;
 }
 
-.button{
+.btn{
+  padding:13px 19px;
+  border-radius:10px;
   text-decoration:none;
-  padding:14px 21px;
-  border-radius:11px;
-  font-size:12px;
+  font-size:11px;
   font-weight:700;
   transition:.3s;
 }
 
-.button-primary{
-  color:white;
-  background:linear-gradient(135deg,#ff174f,#ff4d91);
-  box-shadow:0 15px 40px rgba(255,20,80,.2);
-}
-
-.button-secondary{
-  color:white;
-  border:1px solid #282025;
-  background:#0d080a;
-}
-
-.button:hover{
+.btn:hover{
   transform:translateY(-4px);
 }
 
-.hero-location{
-  margin-top:20px;
-  color:#666;
-  font-size:12px;
+.primary{
+  color:#fff;
+  background:linear-gradient(135deg,#ff174f,#ff4d91);
+  box-shadow:0 15px 35px rgba(255,20,80,.18);
 }
 
-/* ================= PHOTO ================= */
+.secondary{
+  color:#aaa;
+  border:1px solid #281c21;
+  background:#0c080a;
+}
 
-.hero-photo{
+.location{
+  color:#555;
+  font-size:11px;
+  margin-top:18px;
+}
+
+/* PHOTO CARD */
+
+.profile-card{
   position:relative;
+  padding:14px;
+
+  background:linear-gradient(145deg,#1b0b11,#090508);
+  border:1px solid #39202a;
+  border-radius:30px;
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.5),
+    0 0 70px rgba(255,20,80,.08);
+
+  transform:rotate(2deg);
+  transition:.4s;
+}
+
+.profile-card:hover{
+  transform:rotate(0) translateY(-8px);
+}
+
+.profile-card img{
+  width:100%;
+  height:430px;
+  display:block;
+  object-fit:cover;
+  object-position:center 20%;
+  border-radius:21px;
+}
+
+.profile-info{
+  padding:17px 8px 6px;
   display:flex;
-  justify-content:center;
+  justify-content:space-between;
   align-items:center;
 }
 
-.photo-circle{
-  width:330px;
-  height:330px;
-  border-radius:50%;
-  padding:8px;
-
-  background:linear-gradient(
-    135deg,
-    #fff,
-    #ff3d7b,
-    #9b0037
-  );
-
-  box-shadow:
-    0 0 80px rgba(255,20,80,.20),
-    0 0 0 1px rgba(255,255,255,.08);
-
-  animation:photoFloat 5s ease-in-out infinite;
+.profile-info strong{
+  font-size:14px;
 }
 
-.photo-circle img{
-  width:100%;
-  height:100%;
-  border-radius:50%;
-  object-fit:cover;
-  object-position:center 20%;
-  border:5px solid #090306;
-}
-
-@keyframes photoFloat{
-  0%,100%{
-    transform:translateY(0);
-  }
-
-  50%{
-    transform:translateY(-14px);
-  }
-}
-
-.photo-tag{
-  position:absolute;
-  bottom:15px;
-  right:10px;
-
-  padding:10px 14px;
-
-  background:#0d0508;
-  border:1px solid #3a1724;
-  border-radius:12px;
-
+.profile-info span{
+  color:#ff3d7b;
   font-size:10px;
-  color:#aaa;
-
-  box-shadow:0 10px 30px rgba(0,0,0,.4);
 }
 
-.photo-tag strong{
-  color:#ff4d87;
-}
-
-/* ================= SECTIONS ================= */
+/* ================= GENERAL ================= */
 
 .section{
-  width:min(1100px,92%);
+  width:min(1120px,92%);
   margin:auto;
-  padding:110px 0;
+  padding:105px 0;
 }
 
-.section-heading{
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  gap:30px;
-  margin-bottom:45px;
+.heading{
+  margin-bottom:40px;
 }
 
-.section-number{
-  color:#4c333c;
-  font-family:"Space Grotesk",sans-serif;
-  font-size:13px;
+.number{
+  color:#563440;
+  font-size:10px;
+  letter-spacing:2px;
+  margin-bottom:10px;
 }
 
-.section-title{
+.heading h2{
   font-family:"Space Grotesk",sans-serif;
   font-size:43px;
   letter-spacing:-2px;
 }
 
-.section-title span{
+.heading h2 span{
   color:#ff3d7b;
 }
 
-.section-subtitle{
-  max-width:400px;
-  color:#777;
+.heading p{
+  max-width:500px;
+  margin-top:12px;
+  color:#666;
   font-size:13px;
   line-height:1.7;
 }
 
-/* ================= ABOUT ================= */
+/* ================= ABOUT CARD ================= */
 
 .about-card{
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:40px;
-
-  padding:40px;
-
-  background:
-    radial-gradient(circle at 0% 0%,rgba(255,20,80,.08),transparent 35%),
-    #0b0709;
-
-  border:1px solid #21151a;
-  border-radius:25px;
-
-  box-shadow:0 25px 70px rgba(0,0,0,.25);
+  grid-template-columns:1.3fr .7fr;
+  gap:20px;
 }
 
-.about-card p{
-  color:#91888d;
-  font-size:15px;
+.about-main,
+.about-side{
+  padding:35px;
+  background:rgba(12,7,9,.8);
+  border:1px solid #21161b;
+  border-radius:23px;
+  transition:.35s;
+}
+
+.about-main:hover,
+.about-side:hover{
+  border-color:#4b202d;
+  transform:translateY(-5px);
+}
+
+.about-main h3{
+  font-family:"Space Grotesk",sans-serif;
+  font-size:22px;
+  margin-bottom:15px;
+}
+
+.about-main p{
+  color:#858087;
+  font-size:14px;
   line-height:1.9;
 }
 
-.about-highlight{
+.about-side{
   display:flex;
   flex-direction:column;
-  justify-content:center;
-  gap:15px;
+  gap:12px;
 }
 
-.about-item{
-  padding:18px;
-  border:1px solid #21171b;
+.info{
+  padding:17px;
+  background:#0a0608;
+  border:1px solid #1d1418;
   border-radius:15px;
-  background:#0b0709;
 }
 
-.about-item small{
-  color:#60454f;
-  font-size:10px;
+.info small{
+  color:#624450;
+  font-size:9px;
   text-transform:uppercase;
   letter-spacing:1px;
 }
 
-.about-item strong{
+.info strong{
   display:block;
   margin-top:5px;
-  color:#eee;
-  font-size:14px;
+  font-size:13px;
 }
 
 /* ================= SKILLS ================= */
 
-.skill-grid{
+.skills{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:12px;
+  gap:14px;
 }
 
-.skill{
-  padding:25px 20px;
-  border:1px solid #1d1518;
-  border-radius:18px;
-  background:#0a0708;
-  transition:.3s;
+.skill-card{
+  padding:25px;
+  background:#0a0709;
+  border:1px solid #20161a;
+  border-radius:20px;
+  transition:.35s;
 }
 
-.skill:hover{
-  transform:translateY(-5px);
-  border-color:#47202d;
-  box-shadow:0 15px 35px rgba(255,20,80,.06);
+.skill-card:hover{
+  transform:translateY(-7px);
+  border-color:#572333;
+  box-shadow:0 20px 40px rgba(255,20,80,.07);
 }
 
 .skill-icon{
-  font-size:24px;
-  margin-bottom:18px;
+  font-size:25px;
+  margin-bottom:16px;
 }
 
-.skill h3{
+.skill-card h3{
   font-size:14px;
-  margin-bottom:6px;
+  margin-bottom:7px;
 }
 
-.skill p{
-  color:#666;
+.skill-card p{
+  color:#626064;
   font-size:11px;
+  line-height:1.6;
 }
 
 /* ================= PROJECTS ================= */
 
-.project-list{
+.projects{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:20px;
+  gap:22px;
 }
 
-.project{
-  border:1px solid #1d1518;
-  border-radius:22px;
+.project-card{
   overflow:hidden;
-  background:#090607;
+  background:#090608;
+  border:1px solid #21171b;
+  border-radius:24px;
   transition:.4s;
 }
 
-.project:hover{
-  transform:translateY(-8px);
-  border-color:#542333;
-  box-shadow:0 20px 50px rgba(255,20,80,.06);
+.project-card:hover{
+  transform:translateY(-9px);
+  border-color:#5a2636;
+  box-shadow:0 25px 60px rgba(255,20,80,.08);
 }
 
 .project-image{
+  position:relative;
   padding:9px;
   background:#050304;
 }
 
 .project-image img{
   width:100%;
-  height:300px;
+  height:310px;
+  display:block;
   object-fit:cover;
   object-position:top;
-  display:block;
-  border-radius:15px;
+  border-radius:17px;
   transition:.5s;
 }
 
-.project:hover .project-image img{
+.project-card:hover .project-image img{
   transform:scale(1.025);
+}
+
+.project-no{
+  position:absolute;
+  top:20px;
+  right:20px;
+
+  padding:7px 10px;
+  border-radius:8px;
+
+  background:rgba(5,2,4,.8);
+  border:1px solid rgba(255,255,255,.1);
+
+  color:#aaa;
+  font-size:9px;
 }
 
 .project-body{
   padding:25px;
 }
 
-.project-top{
-  display:flex;
-  justify-content:space-between;
-  gap:15px;
-}
-
-.project h3{
+.project-body h3{
   font-family:"Space Grotesk",sans-serif;
   font-size:21px;
 }
 
-.project-number{
-  color:#4d323c;
-  font-size:11px;
-}
-
-.project p{
-  color:#707070;
+.project-body p{
+  color:#777;
   font-size:12px;
-  line-height:1.7;
+  line-height:1.75;
   margin:10px 0 17px;
 }
 
-.tech{
+.tags{
   display:flex;
-  gap:6px;
   flex-wrap:wrap;
+  gap:6px;
   margin-bottom:20px;
 }
 
-.tech span{
-  color:#a27d88;
-  border:1px solid #2a1b21;
-  background:#0d080a;
-  padding:5px 9px;
+.tags span{
+  padding:6px 9px;
   border-radius:20px;
+  color:#b0808f;
+  background:#10090c;
+  border:1px solid #2c1b22;
   font-size:9px;
 }
 
-.project-links{
+.project-buttons{
   display:flex;
   gap:8px;
 }
 
-.project-links a{
+.project-buttons a{
   flex:1;
-  text-align:center;
-  padding:10px;
+  padding:11px;
   border-radius:9px;
+  text-align:center;
   text-decoration:none;
-  font-size:11px;
+  font-size:10px;
   font-weight:700;
   transition:.3s;
 }
 
-.project-live{
-  color:white;
+.live{
+  color:#fff;
   background:linear-gradient(135deg,#ff174f,#ff4d91);
 }
 
-.project-github{
+.code{
   color:#aaa;
   background:#111;
   border:1px solid #292025;
 }
 
-.project-links a:hover{
-  transform:translateY(-2px);
+.project-buttons a:hover{
+  transform:translateY(-3px);
 }
 
 /* ================= EDUCATION ================= */
 
-.education{
-  position:relative;
-  padding-left:30px;
-  border-left:1px solid #2a171f;
+.education-card{
+  display:grid;
+  grid-template-columns:100px 1fr;
+  gap:25px;
+  padding:30px;
+
+  background:#0a0709;
+  border:1px solid #21161b;
+  border-radius:22px;
 }
 
-.edu-card{
-  position:relative;
-  padding:28px;
-  margin-bottom:18px;
-  background:#090607;
-  border:1px solid #1d1518;
-  border-radius:18px;
-}
-
-.edu-card::before{
-  content:"";
-  position:absolute;
-  width:9px;
-  height:9px;
-  border-radius:50%;
-  background:#ff3d7b;
-  left:-35px;
-  top:35px;
-  box-shadow:0 0 15px rgba(255,40,100,.6);
-}
-
-.edu-card small{
+.edu-year{
   color:#ff3d7b;
-  font-size:10px;
-  text-transform:uppercase;
-  letter-spacing:1px;
-}
-
-.edu-card h3{
-  margin:8px 0;
-  font-size:19px;
-}
-
-.edu-card p{
-  color:#6f6f6f;
+  font-family:"Space Grotesk",sans-serif;
   font-size:12px;
+}
+
+.education-card h3{
+  font-size:20px;
+  margin-bottom:8px;
+}
+
+.education-card p{
+  color:#707074;
+  font-size:12px;
+  line-height:1.7;
 }
 
 /* ================= CONTACT ================= */
 
-.contact-box{
+.contact-card{
   position:relative;
   overflow:hidden;
 
-  padding:65px 45px;
-
+  padding:65px 35px;
   text-align:center;
 
-  border:1px solid #29151d;
+  border:1px solid #321b24;
   border-radius:28px;
 
   background:
-    radial-gradient(circle at 50% 0%,rgba(255,20,80,.16),transparent 42%),
-    #090506;
+    radial-gradient(circle at 50% 0%,rgba(255,20,80,.17),transparent 45%),
+    #090507;
 }
 
-.contact-box h2{
+.contact-card h2{
   font-family:"Space Grotesk",sans-serif;
-  font-size:48px;
-  letter-spacing:-2px;
-  margin-bottom:15px;
+  font-size:clamp(35px,5vw,55px);
+  letter-spacing:-3px;
 }
 
-.contact-box h2 span{
+.contact-card h2 span{
   color:#ff3d7b;
 }
 
-.contact-box p{
-  max-width:550px;
-  margin:auto;
-  color:#777;
+.contact-card p{
+  max-width:570px;
+  margin:15px auto 0;
+  color:#707074;
   font-size:13px;
+  line-height:1.8;
 }
 
-.contact-buttons{
+.contact-links{
+  margin-top:28px;
   display:flex;
   justify-content:center;
-  gap:10px;
   flex-wrap:wrap;
-  margin-top:30px;
+  gap:10px;
 }
 
-.contact-link{
-  color:white;
+.contact-links a{
+  color:#aaa;
   text-decoration:none;
-  padding:12px 18px;
-  border:1px solid #292025;
+  padding:12px 17px;
+  border:1px solid #2a1c21;
   border-radius:10px;
-  font-size:11px;
+  font-size:10px;
   font-weight:700;
   transition:.3s;
 }
 
-.contact-link:hover{
+.contact-links a:hover{
+  color:#fff;
   border-color:#ff3d7b;
-  color:#ff4d87;
+  background:#12070b;
 }
 
 /* ================= FOOTER ================= */
 
 footer{
-  width:min(1100px,92%);
+  width:min(1120px,92%);
   margin:auto;
   padding:35px 0;
-  border-top:1px solid #191216;
+
+  border-top:1px solid #1a1216;
 
   display:flex;
   justify-content:space-between;
-  gap:20px;
 
-  color:#555;
-  font-size:11px;
+  color:#4e4b4e;
+  font-size:10px;
 }
 
 /* ================= MOBILE ================= */
@@ -734,57 +682,50 @@ footer{
   .hero-inner{
     grid-template-columns:1fr;
     text-align:center;
-    gap:45px;
+    padding-top:125px;
   }
 
-  .hero-description{
+  .hero-text{
     margin:auto;
   }
 
-  .hero-buttons{
+  .buttons{
     justify-content:center;
   }
 
-  .hero-photo{
-    order:-1;
-  }
-
-  .photo-circle{
-    width:270px;
-    height:270px;
+  .profile-card{
+    max-width:390px;
+    width:100%;
+    margin:auto;
   }
 
   .about-card{
     grid-template-columns:1fr;
   }
 
-  .skill-grid{
+  .skills{
     grid-template-columns:repeat(2,1fr);
   }
 
-  .project-list{
+  .projects{
     grid-template-columns:1fr;
   }
 
-  .section-heading{
-    flex-direction:column;
-    align-items:flex-start;
+  .education-card{
+    grid-template-columns:1fr;
+    gap:10px;
   }
 }
 
 @media(max-width:600px){
 
-  .nav{
+  nav{
     top:8px;
     width:94%;
   }
 
-  .nav-contact{
+  .nav-btn{
     display:none;
-  }
-
-  .hero-inner{
-    padding-top:125px;
   }
 
   .hero h1{
@@ -792,46 +733,36 @@ footer{
     letter-spacing:-3px;
   }
 
-  .hero-description{
-    font-size:14px;
+  .hero h2{
+    font-size:21px;
   }
 
-  .hero-buttons{
-    flex-direction:column;
+  .hero-text{
+    font-size:13px;
   }
 
-  .button{
-    width:100%;
-    text-align:center;
-  }
-
-  .photo-circle{
-    width:225px;
-    height:225px;
-  }
-
-  .photo-tag{
-    right:-5px;
-    bottom:5px;
+  .profile-card img{
+    height:360px;
   }
 
   .section{
     padding:75px 0;
   }
 
-  .section-title{
+  .heading h2{
     font-size:34px;
   }
 
-  .about-card{
+  .about-main,
+  .about-side{
     padding:25px;
   }
 
-  .skill-grid{
+  .skills{
     grid-template-columns:1fr 1fr;
   }
 
-  .skill{
+  .skill-card{
     padding:20px 15px;
   }
 
@@ -843,24 +774,20 @@ footer{
     padding:20px;
   }
 
-  .project-links{
+  .project-buttons{
     flex-direction:column;
   }
 
-  .contact-box{
+  .contact-card{
     padding:45px 20px;
-  }
-
-  .contact-box h2{
-    font-size:36px;
   }
 
   footer{
     flex-direction:column;
     text-align:center;
+    gap:10px;
   }
 }
-
 </style>
 </head>
 
@@ -881,21 +808,22 @@ footer{
 
 <!-- NAVBAR -->
 
-<nav class="nav">
+<nav>
 
-  <a href="#" class="logo">
+  <div class="logo">
     Sadar<span>Uddin</span>
-  </a>
+  </div>
 
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
     <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
   </div>
 
-  <a href="#contact" class="nav-contact">
-    Let's Talk ❤️
+  <a href="#contact" class="nav-btn">
+    Let's Connect ❤️
   </a>
 
 </nav>
@@ -905,65 +833,66 @@ footer{
 
 <header class="hero">
 
-  <div class="hero-glow"></div>
-
   <div class="hero-inner">
 
     <div>
 
-      <div class="hero-small">
-        <span>●</span> Available for Flutter Internship
+      <div class="availability">
+        <i></i>
+        Available for Flutter Internship
       </div>
 
       <h1>
-        Building <span class="pink">Digital</span><br>
-        Experiences.
+        Hi, I'm<br>
+        <span>SadarUddin.</span>
       </h1>
 
-      <p class="hero-description">
-        I'm SadarUddin, a Software Engineering student and
-        Flutter Developer focused on creating clean,
-        modern and user-friendly mobile applications.
+      <h2>Flutter Developer</h2>
+
+      <p class="hero-text">
+        Software Engineering student passionate about
+        building modern, clean and user-friendly mobile
+        applications with Flutter and Dart.
       </p>
 
-      <div class="hero-buttons">
+      <div class="buttons">
 
-        <a
-          href="#projects"
-          class="button button-primary">
-          View My Work →
+        <a href="#projects" class="btn primary">
+          Explore My Work →
         </a>
 
         <a
           href="https://github.com/sadaralimahar"
           target="_blank"
-          class="button button-secondary">
+          class="btn secondary">
           GitHub ↗
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/sadaralimahar"
+          target="_blank"
+          class="btn secondary">
+          LinkedIn ↗
         </a>
 
       </div>
 
-      <div class="hero-location">
+      <div class="location">
         📍 Ghotki, Sindh, Pakistan
       </div>
 
     </div>
 
 
-    <!-- PHOTO -->
+    <div class="profile-card">
 
-    <div class="hero-photo">
+      <img
+        src="images/compressed_1000183387.jpg"
+        alt="SadarUddin">
 
-      <div class="photo-circle">
-
-        <img
-          src="images/compressed_1000183387.jpg"
-          alt="SadarUddin">
-
-      </div>
-
-      <div class="photo-tag">
-        <strong>Flutter</strong> Developer ❤️
+      <div class="profile-info">
+        <strong>SadarUddin</strong>
+        <span>Flutter Developer ❤️</span>
       </div>
 
     </div>
@@ -977,19 +906,16 @@ footer{
 
 <section class="section" id="about">
 
-  <div class="section-heading">
+  <div class="heading">
 
-    <div>
-      <div class="section-number">01 / ABOUT</div>
+    <div class="number">01 / ABOUT ME</div>
 
-      <h2 class="section-title">
-        About <span>Me</span>
-      </h2>
-    </div>
+    <h2>
+      A little <span>about me.</span>
+    </h2>
 
-    <p class="section-subtitle">
-      A developer who enjoys turning ideas into
-      functional and beautiful applications.
+    <p>
+      Who I am, what I build and what I'm working towards.
     </p>
 
   </div>
@@ -997,36 +923,50 @@ footer{
 
   <div class="about-card">
 
-    <p>
-      Hi, I'm SadarUddin, a Software Engineering student at
-      the University of Sindh, Jamshoro, and a passionate
-      Flutter Developer. I enjoy creating modern mobile
-      applications using Flutter and Dart with a strong focus
-      on clean UI and smooth user experiences.
-      <br><br>
-      I've worked on projects such as Grocery App,
-      WhatsApp Clone, Todo Clone and SneakerTute Clone.
-      I'm continuously learning and improving my development
-      skills while looking for opportunities to grow as a
-      professional Flutter Developer.
-    </p>
+    <div class="about-main">
+
+      <h3>Building with passion.</h3>
+
+      <p>
+        Hi, I'm SadarUddin, a Software Engineering student at
+        the University of Sindh, Jamshoro, and a passionate
+        Flutter Developer.
+        <br><br>
+        I enjoy building modern mobile applications with
+        Flutter and Dart. My focus is on clean interfaces,
+        responsive layouts and creating experiences that
+        are simple and enjoyable to use.
+        <br><br>
+        I have developed projects including Grocery App,
+        WhatsApp Clone, Todo Clone and SneakerTute Clone.
+        I'm currently looking for opportunities where I can
+        improve my skills and contribute to real-world
+        software projects.
+      </p>
+
+    </div>
 
 
-    <div class="about-highlight">
+    <div class="about-side">
 
-      <div class="about-item">
-        <small>Specialization</small>
-        <strong>Flutter & Dart</strong>
+      <div class="info">
+        <small>Name</small>
+        <strong>SadarUddin</strong>
       </div>
 
-      <div class="about-item">
-        <small>Focus</small>
-        <strong>Mobile App Development</strong>
+      <div class="info">
+        <small>Role</small>
+        <strong>Flutter Developer</strong>
       </div>
 
-      <div class="about-item">
-        <small>Goal</small>
-        <strong>Build Better Digital Products ❤️</strong>
+      <div class="info">
+        <small>University</small>
+        <strong>University of Sindh</strong>
+      </div>
+
+      <div class="info">
+        <small>Location</small>
+        <strong>Ghotki, Sindh, Pakistan</strong>
       </div>
 
     </div>
@@ -1040,67 +980,70 @@ footer{
 
 <section class="section" id="skills">
 
-  <div class="section-heading">
+  <div class="heading">
 
-    <div>
-      <div class="section-number">02 / EXPERTISE</div>
+    <div class="number">02 / SKILLS</div>
 
-      <h2 class="section-title">
-        My <span>Skills</span>
-      </h2>
-    </div>
+    <h2>
+      My <span>toolkit.</span>
+    </h2>
+
+    <p>
+      Technologies and tools I use to turn ideas into
+      working applications.
+    </p>
 
   </div>
 
 
-  <div class="skill-grid">
+  <div class="skills">
 
-    <div class="skill">
+    <div class="skill-card">
       <div class="skill-icon">📱</div>
       <h3>Flutter</h3>
-      <p>Cross-platform mobile development</p>
+      <p>Cross-platform mobile application development.</p>
     </div>
 
-    <div class="skill">
+    <div class="skill-card">
       <div class="skill-icon">🎯</div>
       <h3>Dart</h3>
-      <p>Modern application development</p>
+      <p>Programming language used for Flutter development.</p>
     </div>
 
-    <div class="skill">
+    <div class="skill-card">
       <div class="skill-icon">🔥</div>
       <h3>Firebase</h3>
-      <p>Backend and cloud integration</p>
+      <p>Authentication, backend services and cloud data.</p>
     </div>
 
-    <div class="skill">
+    <div class="skill-card">
       <div class="skill-icon">🔗</div>
       <h3>REST API</h3>
-      <p>API integration and data handling</p>
+      <p>API integration and application data handling.</p>
     </div>
 
-    <div class="skill">
+    <div class="skill-card">
       <div class="skill-icon">🌿</div>
       <h3>Git</h3>
-      <p>Version control and collaboration</p>
+      <p>Version control and development workflow.</p>
     </div>
 
-    <div class="skill">
-      <div class="skill-icon">⚙️</div>
+    <div class="skill-card">
+      <div class="skill-icon">🐙</div>
       <h3>GitHub</h3>
-      <p>Source control and project hosting</p>
+      <p>Code hosting and project collaboration.</p>
     </div>
 
-    <div class="skill">
+    <div class="skill-card">
       <div class="skill-icon">🗄️</div>
       <h3>SQL</h3>
-      <p>Database fundamentals</p>
+      <p>Database fundamentals and data management.</p>
     </div>
 
-    <div class="skill">
+    <div class="skill-card">
       <div class="skill-icon">🎨</div>
       <h3>UI / UX</h3>
-      <p>Clean and user-friendly interfaces</p>
+      <p>Clean, responsive and user-friendly interfaces.</p>
     </div>
 
   </div>
@@ -1112,69 +1055,71 @@ footer{
 
 <section class="section" id="projects">
 
-  <div class="section-heading">
+  <div class="heading">
 
-    <div>
-      <div class="section-number">03 / SELECTED WORK</div>
+    <div class="number">03 / PROJECTS</div>
 
-      <h2 class="section-title">
-        Featured <span>Projects</span>
-      </h2>
-    </div>
+    <h2>
+      Selected <span>work.</span>
+    </h2>
 
-    <p class="section-subtitle">
-      Some of the applications I've built while
-      learning and developing with Flutter.
+    <p>
+      A collection of Flutter projects I've built while
+      learning and improving my development skills.
     </p>
 
   </div>
 
 
-  <div class="project-list">
+  <div class="projects">
 
 
-    <!-- GROCERY -->
+    <!-- PROJECT 01 -->
 
-    <article class="project">
+    <article class="project-card">
 
       <div class="project-image">
+
         <img
           src="images/grocery-1.jpg"
           alt="Grocery App">
+
+        <div class="project-no">01</div>
+
       </div>
 
       <div class="project-body">
 
-        <div class="project-top">
-          <h3>Grocery App</h3>
-          <span class="project-number">01</span>
-        </div>
+        <h3>🛒 Grocery App</h3>
 
         <p>
-          A modern grocery shopping application
-          designed with a clean and user-friendly
-          Flutter interface.
+          A modern grocery shopping application built with
+          Flutter. It provides a clean shopping interface
+          with product browsing and a user-friendly layout.
+          The project focuses on reusable widgets,
+          structured UI and a smooth shopping experience.
         </p>
 
-        <div class="tech">
+        <div class="tags">
           <span>Flutter</span>
           <span>Dart</span>
           <span>Firebase</span>
+          <span>UI/UX</span>
         </div>
 
-        <div class="project-links">
+        <div class="project-buttons">
 
           <a
+            class="live"
             href="https://sadaralimahar.github.io/Grocery_app/"
-            target="_blank"
-            class="project-live">
-            Live Demo ↗
+            target="_blank">
+            🚀 Live Demo
           </a>
 
           <a
+            class="code"
             href="https://github.com/sadaralimahar/Grocery_app"
-            target="_blank"
-            class="project-github">
+            target="_blank">
             GitHub ↗
           </a>
 
@@ -1185,23 +1130,61 @@ footer{
     </article>
 
 
-    <!-- WHATSAPP -->
+    <!-- PROJECT 02 -->
 
-    <article class="project">
+    <article class="project-card">
 
       <div class="project-image">
+
         <img
           src="images/whatsapp-1.jpg"
           alt="WhatsApp Clone">
+
+        <div class="project-no">02</div>
+
       </div>
 
       <div class="project-body">
 
-        <div class="project-top">
-          <h3>WhatsApp Clone</h3>
-          <span class="project-number">02</span>
-        </div>
+        <h3>💬 WhatsApp Clone</h3>
 
         <p>
-          A WhatsApp-inspired Flutter application
-          focused on r
+          A WhatsApp-inspired Flutter application created
+          to practice modern messaging UI patterns,
+          navigation, reusable components and responsive
+          mobile layouts.
+        </p>
+
+        <div class="tags">
+          <span>Flutter</span>
+          <span>Dart</span>
+          <span>UI/UX</span>
+          <span>Mobile UI</span>
+        </div>
+
+        <div class="project-buttons">
+
+          <a
+            class="live"
+            href="https://sadaralimahar.github.io/whatsapp_clone/"
+            target="_blank">
+            🚀 Live Demo
+          </a>
+
+          <a
+            class="code"
+            href="https://github.com/sadaralimahar/whatsapp_clone"
+            target="_blank">
+            GitHub ↗
+          </a>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- PROJECT 03 -->
+
+  
